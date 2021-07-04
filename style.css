@@ -29,4 +29,42 @@ p {
     width: 25px;
     height: 25px;
     border-radius: 50px;
+    transform: translate(-50%, -50%);
+    cursor: none;
+}
+
+.cursor::after, .cursor::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    left: 50%; 
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 50px;
+}
+
+.cursor::before {
+    background-color: tomato;
+    transform: translate(-50%, -50%) scale(3);
+}
+
+.cursor.click::before {
+    animation: click 1s ease-in-out forwards;
+}
+
+/* Animation */
+
+@keyframes click{
+
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(5);
+    }
 }
